@@ -1,23 +1,31 @@
-<h1>Listing Articles</h1>
 
-<%= link_to 'New article', new_article_path %>
- 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
- 
-  <% @article.each do |article_element| %>
-    <tr>
-      <td><%= article_element.title %></td>
-      <td><%= article_element.text %></td>
-      <td><%= link_to 'Show', article_path(article_element) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article_element) %></td>
-      <td><%= link_to 'Destroy', article_path(article_element),
+<div class="input-box bg-color">
+  <h1 class="display-6">Listing Articles</h1>
+  <hr class="my-4">
+  <%= link_to 'New article', new_article_path, :class => "btn btn-success btn-lg" %>
+</div>
+
+<% @article.each do |article_element| %>
+<div class="input-box bg-color">
+<div class="row gap">
+  <div class="col">
+    <h2><%= article_element.title %></h2>
+  </div>
+</div>
+<div class="row gap">
+  <div class="col">
+    <h6><%= article_element.text %></h6>
+  </div>
+</div>
+
+<div class="row gap">
+  <div class="col">
+    <%= link_to 'Show', article_path(article_element), :class => "btn btn-success" %>
+    <span class="btn-mg"><%= link_to 'Edit', edit_article_path(article_element), :class => "btn btn-primary" %></span>
+    <span class="btn-mg"><%= link_to 'Destroy', article_path(article_element),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+              data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></span>
+  </div>
+</div>
+</div>
+<% end %>

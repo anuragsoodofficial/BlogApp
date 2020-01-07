@@ -1,15 +1,15 @@
-<p>
+<p class="gap">
   <strong>Commenter:</strong>
   <%= comment.commenter %>
 </p>
  
-<p>
+<p class="gap">
   <strong>Comment:</strong>
   <%= comment.body %>
 </p>
 
-<p>
+<p class="gap">
   <%= link_to 'Destroy Comment', [comment.article, comment],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' }, :class => "btn btn-warning btn-lg" %>
 </p>

@@ -1,19 +1,29 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
 
-<h2>Comments</h2>
+<div class="input-box bg-color">
+<div class="container">
+<div class="row">
+  <div class="col">
+  	<h2><%= @article.title %></h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+  	<p class="para-font"><%= @article.text %></p>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="input-box bg-color">
+<h2 class="gap">Comments</h2>
 <%= render @article.comments %>
+</div>
 
-
-<h2>Add a comment: </h2>
+<div class="input-box bg-color">
+<h2 class="gap">Add a comment: </h2>
 <%= render 'comments/form' %>
-
-<%= link_to 'Edit', edit_article_path(@article) %>
-<%= link_to 'Back', articles_path %>
+</div>
+<section class="input-box bg-color">
+<span><%= link_to 'Edit', edit_article_path(@article), :class => "btn btn-primary btn-lg" %></span>
+<span class="btn-mg"><%= link_to 'Back', articles_path, :class => "btn btn-dark btn-lg" %></span>
+</section>

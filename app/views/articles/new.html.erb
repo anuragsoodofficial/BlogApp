@@ -15,19 +15,22 @@
     </div>
   <% end %>
 
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
- 
-  <p>
-    <%= form.label :text %><br>
-    <%= form.text_area :text %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
+<form>
+  <div class="form-group input-box">
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title, :class => "form-control" %>
+    </p>
+   
+    <p>
+      <%= form.label :text %><br>
+      <%= form.text_area :text, :class => "form-control", :rows => "5" %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+      <%= link_to 'Back', articles_path, :class => "btn btn-dark" %>
+    </p>
+  </div>
 <% end %>
-
-<%= link_to 'Back', articles_path %>
+</form>
