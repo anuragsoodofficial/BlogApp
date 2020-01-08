@@ -1,0 +1,17 @@
+<p id="alert"><%= alert %></p>
+<div class="input-box bg-color">
+<h1>Login</h1>
+<%= form_tag sessions_path do |form| %>
+  <div class="field form-group">
+    <%= label_tag :email %>
+    <%= text_field_tag(:email, nil, class: "form-control") %>
+  </div>
+  <div class="field form-group">
+    <%= label_tag :password %>
+    <%= password_field_tag(:password, nil, class: "form-control") %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Login", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
