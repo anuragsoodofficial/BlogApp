@@ -3,7 +3,7 @@
   <div class="form-group">
   <p>
     <%= form.label :commenter %><br>
-    <%= form.text_field :commenter, :class => "form-control" %>
+    <%= form.text_field :commenter, :class => "form-control", :value => current_user.email, :readonly => "readonly" %>
   </p>
   <p>
     <%= form.label :body %><br>
