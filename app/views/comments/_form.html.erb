@@ -2,15 +2,14 @@
 <form>
   <div class="form-group">
   <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter, :class => "form-control", :value => current_user.email, :readonly => "readonly" %>
+    <% full_name = current_user.first_name + " " + current_user.last_name %>
+    <%= form.text_field :commenter, :class => "form-control", :value => full_name, :readonly => "readonly" %>
   </p>
   <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body, :class => "form-control" %>
+    <%= form.text_area :body, :class => "form-control", :placeholder => "Write your comment here", :rows => "5" %>
   </p>
   <p>
-    <%= form.submit :Submit, :class => "btn btn-primary" %>
+    <%= form.submit :Submit, :class => "btn btn-primary btn-block" %>
   </p>
 </div>
 <% end %>

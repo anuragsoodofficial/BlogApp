@@ -1,21 +1,4 @@
-<div class="input-box bg-color">
-<p id="notice"><%= notice %></p>
-
-<p class="para-font">
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p class="para-font">
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p class="para-font">
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user), :class => "btn btn-primary gap" %>
-<%= link_to 'Back', root_url, :class => "btn btn-dark" %>
+<div class="input-box">
+<h1 id="notice"><%= notice %></h1>
+<%= link_to 'Login', root_url, :class => "btn btn-outline-primary" %>
 </div>

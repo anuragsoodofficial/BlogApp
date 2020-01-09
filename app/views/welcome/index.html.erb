@@ -8,10 +8,7 @@
   <%= link_to 'My Blog', articles_path, :class => "btn btn-primary" %>
 </div>
 <% else %>
-<div class="input-box bg-color">
-  <%= link_to "Sign Up", signup_path, :class => "btn btn-primary" %> or 
-  <%= link_to "Log In", login_path, :class => "btn btn-primary" %>
-</div>
+<%= render "sessions/login" %>
 <% end %>
 
 

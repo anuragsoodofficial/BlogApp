@@ -18,18 +18,16 @@
 <form>
   <div class="form-group input-box">
     <p>
-      <%= form.label :title %><br>
-      <%= form.text_field :title, :class => "form-control" %>
+      <%= form.text_field :title, :class => "form-control", :placeholder => "Title" %>
     </p>
    
     <p>
-      <%= form.label :text %><br>
-      <%= form.text_area :text, :class => "form-control", :rows => "5" %>
+      <%= form.text_area :text, :class => "form-control", :placeholder => "Description", :rows => "10" %>
     </p>
    
     <p>
-      <%= form.submit :Submit, :class => "btn btn-primary" %>
-      <%= link_to 'Back', articles_path, :class => "btn btn-dark" %>
+      <%= form.submit :Submit, :class => "btn btn-primary col-4" %>
+      <%= link_to 'Back', articles_path, :class => "btn btn-dark col-4" %>
     </p>
   </div>
 <% end %>

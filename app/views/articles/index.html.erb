@@ -1,33 +1,27 @@
 <div class="log-out-btn">
-<%= link_to "Log Out", logout_path, :class => "btn btn-danger btn-sm" %>
+<%= link_to "Log Out", logout_path, :class => "btn btn-outline-danger btn-sm" %>
 </div>
 
-<div class="input-box bg-color">
-  <h1 class="display-6">Listing Articles</h1>
-  <hr class="my-4">
-  <%= link_to 'New article', new_article_path, :class => "btn btn-success btn-lg" %>
+<div class="input-box">
+  <%= link_to 'Create article', new_article_path, :class => "btn btn-outline-primary btn-lg" %>
 </div>
 
 <% @article.each do |article_element| %>
-<div class="input-box bg-color">
-<div class="row gap">
-  <div class="col">
+<div>
+  <hr class="my-4">
+<div class="row ">
+  <div class="col-md-4">
     <h2><%= article_element.title %></h2>
   </div>
-</div>
-<div class="row gap">
-  <div class="col">
+  <div class="col-md-4">
     <h6><%= article_element.text %></h6>
   </div>
-</div>
-
-<div class="row gap">
-  <div class="col">
-    <%= link_to 'Show', article_path(article_element), :class => "btn btn-success" %>
-    <span class="btn-mg"><%= link_to 'Edit', edit_article_path(article_element), :class => "btn btn-primary" %></span>
+  <div class="col-md-4">
+    <%= link_to 'Show', article_path(article_element), :class => "btn btn-outline-primary" %>
+    <span class="btn-mg"><%= link_to 'Edit', edit_article_path(article_element), :class => "btn btn-outline-primary" %></span>
     <span class="btn-mg"><%= link_to 'Destroy', article_path(article_element),
               method: :delete,
-              data: { confirm: 'Are you sure?' }, :class => "btn btn-warning" %></span>
+              data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger" %></span>
   </div>
 </div>
 </div>

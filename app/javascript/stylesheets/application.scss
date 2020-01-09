@@ -4,10 +4,19 @@
 
 body{
 	background: #e1ccec;
+	text-align: center;
 }
 
 h1, h2, h3, h4{
 	color: #0f4c75;
+	margin-bottom: 1.5rem;
+}
+
+.login-box {
+	width: 25%;
+	height: auto;
+	margin: 10% 35%;
+	padding: 10px;
 }
 
 .input-box{
@@ -35,8 +44,9 @@ h1, h2, h3, h4{
 .log-out-btn{
 	margin-left: 90%;
 }
-.center-align{
-	text-align: center;
+
+.comments {
+	text-align: left;
 }
 
 #alert {
