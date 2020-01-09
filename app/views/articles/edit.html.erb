@@ -1,4 +1,4 @@
- 
+<% if current_user %>
 <%= form_with(model: @article, local: true) do |form| %>
  
   <% if @article.errors.any? %>
@@ -33,3 +33,6 @@
   </div>
 <% end %>
 </form>
+<% else %>
+<%= render "sessions/login" %>
+<% end %>
