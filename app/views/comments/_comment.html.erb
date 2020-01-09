@@ -10,12 +10,14 @@
   		<%= comment.body %>
 		</div>
 	</div>
+	<% if @article.user_id == current_user.id %>
 	<div class="row">
 		<div class="col">
 			<%= link_to 'Delete', [comment.article, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger btn-sm" %>
     </div>
+    <% end %>
 		
 	</div>
 </div>

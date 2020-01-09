@@ -20,9 +20,11 @@
   <div class="col-md-4">
     <%= link_to 'Show', article_path(article_element), :class => "btn btn-outline-primary" %>
     <span class="btn-mg"><%= link_to 'Edit', edit_article_path(article_element), :class => "btn btn-outline-primary" %></span>
+    <% if article_element.user_id == current_user.id %>
     <span class="btn-mg"><%= link_to 'Destroy', article_path(article_element),
               method: :delete,
               data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger" %></span>
+        <% end %>
   </div>
 </div>
 </div>
