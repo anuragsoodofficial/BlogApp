@@ -1,0 +1,35 @@
+<% if current_user %>
+<div class="log-out-btn">
+<%= link_to "Log Out", logout_path, :class => "btn btn-outline-danger btn-sm" %>
+</div>
+
+<div class="input-box">
+<h1>User's List</h1>
+</div>
+
+<% @users.each do |user_element| %>
+<div>
+  <hr class="my-4">
+<div class="row ">
+  <div class="col-md-3">
+  	<% full_name = user_element.first_name + " " + user_element.last_name %>
+    <h2><%= full_name %></h2>
+  </div>
+  <div class="col-md-3">
+    <h6><%= user_element.email %></h6>
+  </div>
+  <div class="col-md-3">
+    <h6><%= user_element.role %></h6>
+  </div>
+  <div class="col-md-3">
+    <span class="btn-mg"><%= link_to 'Edit Role', edit_user_path(user_element), :class => "btn btn-outline-primary" %></span>
+    <span class="btn-mg"><%= link_to 'Destroy', user_path(user_element),
+            method: :delete,
+            data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger" %></span>
+   </div>
+</div>
+</div>
+<% end %>
+<% else %>
+<%= render "sessions/login" %>
+<% end %>
