@@ -6,10 +6,8 @@
   <p class="lead">Showcase your knowledge through your <strong>Blog</strong></p>
   <hr class="my-4">
   <%= link_to 'My Blog', articles_path, :class => "btn btn-primary" %>
+  	  <%= link_to 'User Dashboard', users_path, :class => "btn btn-outline-primary" %>
 </div>
 <% else %>
 <%= render "sessions/login" %>
 <% end %>
-
-
-
