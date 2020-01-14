@@ -1,6 +1,5 @@
 <% if current_user %>
-  Logged in as <%= current_user.email %>
-  <%= link_to "Log Out", logout_path %>
+<%= render "sessions/destroy" %>
   <div class="jumbotron input-box bg-color">
   <h1 class="display-4">Welcome To The BlogApp</h1>
   <p class="lead">Showcase your knowledge through your <strong>Blog</strong></p>

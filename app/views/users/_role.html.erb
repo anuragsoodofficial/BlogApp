@@ -23,10 +23,11 @@
 	  <div class="field form-group">
 	    <%= form.text_field :email, :class => "form-control", placeholder: "Email Address", :readonly => "readonly" %>
 	  </div>
-
+	  <% if @user.role == "user" %>
 	  <div class="field form-group">
 	    <%= form.select :role, options_for_select([[User.roles, 'admin'], [User.roles, 'user']]), {}, {class: "form-control"} %>
-	  </div>  
+	  </div>
+	  <% end %>  
 
 
 	  <%= form.submit :Submit, :class => "btn btn-primary btn-block" %>
