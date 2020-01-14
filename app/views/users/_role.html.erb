@@ -23,7 +23,11 @@
 	  <div class="field form-group">
 	    <%= form.text_field :email, :class => "form-control", placeholder: "Email Address", :readonly => "readonly" %>
 	  </div>
-	  <% if @user.role == "user" %>
+	  <% if @user.role == "admin" %>
+	  <div class="field form-group">
+	    <%= form.select :role, options_for_select([[User.roles, 'admin'], [User.roles, 'user']]), {}, {class: "form-control" , disabled: true} %>
+	  </div>
+	  <% else %>
 	  <div class="field form-group">
 	    <%= form.select :role, options_for_select([[User.roles, 'admin'], [User.roles, 'user']]), {}, {class: "form-control"} %>
 	  </div>
