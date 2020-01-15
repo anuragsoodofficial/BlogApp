@@ -4,21 +4,16 @@ class UsersController < ApplicationController
 	# GET /users
 	# GET /users.json
 	def index
+		begin
 		@users = User.all
-	end
-
-	# GET /users/1
-	# GET /users/1.json
-	def show
+		rescue ActiveRecord::RecordNotFound
+			error!({ status: :error, message: :not_found }, 404)
+		end
 	end
 
 	# GET /users/new
 	def new
 		@user = User.new
-	end
-
-	# GET /users/1/edit
-	def edit
 	end
 
 	# POST /users
