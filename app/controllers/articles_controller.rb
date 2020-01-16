@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
-	end
+	end	
 
   def edit
     begin
@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@user = User.find(current_user.id)
-    	@article = @user.articles.create(article_params)
+		@article = @user.articles.create(article_params)
 		if @article.save
     		redirect_to @article
   		else
