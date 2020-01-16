@@ -1,30 +1,28 @@
 <% if current_user %>
-<%= render "sessions/destroy" %>
-	<div class="container">
-	<div class="container">
-	<div class="row">
-	  <div class="col">
-	  	<h2><%= @article.title %></h2>
-	  </div>
-	</div>
-	<div class="row">
-	  <div class="col">
-	  	<p class="para-font"><%= @article.text %></p>
-	  </div>
-	</div>
-	</div>
-	</div>
-
-	<div class="container">
-	<h2 >Comments</h2>
-	<%= render @article.comments %>
-	 </div>
-
-	<div class="input-box">
-	<h2>Add a comment: </h2>
-	<%= render 'comments/form' %>
-	<%= link_to 'Back', articles_path, :class => "btn btn-outline-dark col-9" %>
-	</div>
-	<% else %>
-	<%= render "sessions/login" %>
+  <%= render "sessions/destroy" %>
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2><%= @article.title %></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="para-font"><%= @article.text %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h2 >Comments</h2>
+    <%= render @article.comments %>
+  </div>
+  <div class="input-box">
+    <h2>Add a comment: </h2>
+    <%= render 'comments/form' %>
+    <%= link_to 'Back', articles_path, :class => "btn btn-outline-dark col-9" %>
+  </div>
+<% else %>
+  <%= render "sessions/login" %>
 <% end %>

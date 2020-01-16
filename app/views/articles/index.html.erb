@@ -1,42 +1,37 @@
 <% if current_user %>
-<%= render "sessions/destroy" %>
-
-<div class="mt-5">
-  <%= link_to 'Create article', new_article_path, :class => "btn btn-outline-primary btn-lg" %>
-</div>
-
-<div class="container border border-light">
-  <h1 class="mb-5">Blogs</h1>
-<% @article.each_with_index do |article_element, index| %>
-
-<div>
-<div class="row ">
-  <div class="col-md-2">
-    <p><%= index+1 %></p>
+  <%= render "sessions/destroy" %>
+  <div class="mt-5">
+    <%= link_to 'Create article', new_article_path, :class => "btn btn-outline-primary btn-lg" %>
   </div>
-  <div class="col-md-2">
-    <p><%= article_element.title %></p>
-  </div>
-  <div class="col-md-4">
-    <p><%= article_element.text.truncate(100) %></p>
-  </div>
-  <div class="col-md-4">
-    <%= link_to 'Show', article_path(article_element), :class => "btn btn-outline-primary" %>
-    <% if (article_element.user_id == current_user.id) || (current_user.role == "admin") %>
-    <span class="btn-mg"><%= link_to 'Edit', edit_article_path(article_element), :class => "btn btn-outline-primary" %></span>
-    <span class="btn-mg"><%= link_to 'Destroy', article_path(article_element),
+  <div class="container border border-light">
+    <h1 class="mb-5">Blogs</h1>
+    <% @article.each_with_index do |article_element, index| %>
+      <div>
+        <div class="row ">
+          <div class="col-md-2">
+            <p><%= index+1 %></p>
+          </div>
+          <div class="col-md-2">
+            <p><%= article_element.title %></p>
+          </div>
+          <div class="col-md-4">
+            <p><%= article_element.text.truncate(100) %></p>
+          </div>
+          <div class="col-md-4">
+            <%= link_to 'Show', article_path(article_element), :class => "btn btn-outline-primary" %>
+            <% if (article_element.user_id == current_user.id) || (current_user.role == "admin") %>
+              <span class="btn-mg"><%= link_to 'Edit', edit_article_path(article_element), :class => "btn btn-outline-primary" %></span>
+              <span class="btn-mg"><%= link_to 'Destroy', article_path(article_element),
             method: :delete,
             data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger" %></span>
-    <% else %>
-      
+            <% else %>
+            <% end %>
+          </div>
+        </div>
+        <hr class="my-4 mx-4">
+      </div>
     <% end %>
   </div>
-</div>
-  <hr class="my-4 mx-4">
-
-</div>
-<% end %>
-</div>
 <% else %>
-<%= render "sessions/login" %>
+  <%= render "sessions/login" %>
 <% end %>

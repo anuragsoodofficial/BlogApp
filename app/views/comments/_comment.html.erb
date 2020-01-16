@@ -1,24 +1,22 @@
 <div class="container comments">
-	<div class="row">
-		<div class="col">
-  			<h5><%= comment.commenter %></h5>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col mb-2">
-  		<%= comment.body %>
-		</div>
-	</div>
-	<% if (@article.user_id == current_user.id) || (current_user.role == "admin") %>
-		<div class="row">
-			<div class="col">
-				<%= link_to 'Delete', [comment.article, comment],
+  <div class="row">
+    <div class="col">
+      <h5><%= comment.commenter %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-2">
+      <%= comment.body %>
+    </div>
+  </div>
+  <% if (@article.user_id == current_user.id) || (current_user.role == "admin") %>
+    <div class="row">
+      <div class="col">
+        <%= link_to 'Delete', [comment.article, comment],
 	               method: :delete,
 	               data: { confirm: 'Are you sure?' }, :class => "btn btn-outline-danger btn-sm" %>
-	    </div>
-		
-		</div>
-	    <% end %>
-<hr class="my-4">
-
+      </div>
+    </div>
+  <% end %>
+  <hr class="my-4">
 </div>
