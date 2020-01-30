@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def index
     begin
       @users = User.all
+      authorize @users
     rescue ActiveRecord::RecordNotFound
       error!({ status: :error, message: :not_found }, 404)
     end
@@ -20,7 +21,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User Successfully Created.' }
@@ -33,18 +33,21 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to users_path, notice: 'User Successfully Updated.' }
-      else
-        format.html { render :edit }
-      end
+    @user = User.find(params[:id])
+    authorize @user
+    if @user.update(user_params)
+      flash[:notice] = "Successfully Updated."
+      redirect_to user_path
+    else
+      render :edit
     end
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = User.find(params[:id])
+    authorize @user
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User Successfully Destroyed.' }
@@ -54,7 +57,11 @@ class UsersController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      error!({ status: :error, message: :not_found }, 404)
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

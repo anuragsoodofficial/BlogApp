@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
   def edit
     begin
       @article = Article.find(params[:id])
+      authorize @article
     rescue ActiveRecord::RecordNotFound
       error!({ status: :error, message: :not_found }, 404)
     end
@@ -40,8 +41,9 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-
+    authorize @article
     if @article.update(article_params)
+      flash[:notice] = "Successfully Updated."
       redirect_to @article
     else
       render 'edit'
@@ -50,9 +52,14 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id])
-    @article.destroy
-
-    redirect_to articles_path
+    authorize @article
+    if @article.destroy
+      flash[:notice] = "Successfully Deleted."
+      redirect_to articles_path
+    else
+      flash.now[:notice] = "There was an error deleting the article."
+      redirect_to articles_path
+    end
   end
 
   private

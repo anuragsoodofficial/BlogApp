@@ -1,5 +1,6 @@
 
 @import "~bootstrap/scss/bootstrap";
+@import '@fortawesome/fontawesome-free';
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
 body{
@@ -31,11 +32,15 @@ h1, h2, h3, h4{
 }
 
 .bg-color{
-	background: #f0e3ff;
+	background: #e5dfdf;
+}
+
+.btn-mg-bottom{
+	margin-bottom: 1.5%;
 }
 
 .btn-mg{
-	margin-left: 5%;
+	margin: 0 5%;
 }
 
 .para-font{
