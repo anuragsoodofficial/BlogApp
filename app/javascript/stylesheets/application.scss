@@ -1,5 +1,6 @@
 
 @import "~bootstrap/scss/bootstrap";
+@import '@fortawesome/fontawesome-free';
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
 
 body{
@@ -10,6 +11,12 @@ body{
 h1, h2, h3, h4{
 	color: #0f4c75;
 	margin-bottom: 1.5rem;
+}
+
+.container{
+	background-color: white;
+	margin: 7% auto;
+	padding: 4%;
 }
 
 .login-box {
@@ -25,20 +32,19 @@ h1, h2, h3, h4{
 }
 
 .bg-color{
-	background: #f0e3ff;
+	background: #e5dfdf;
+}
+
+.btn-mg-bottom{
+	margin-bottom: 1.5%;
 }
 
 .btn-mg{
-	margin-left: 5%;
+	margin: 0 5%;
 }
 
 .para-font{
 	font-size: 1.5rem;
-}
-
-.gap{
-	margin: 2% auto;
-	padding: 5% auto;
 }
 
 .log-out-btn{

@@ -1,16 +1,16 @@
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-<form>
-  <div class="form-group">
-  <p>
-    <% full_name = current_user.first_name + " " + current_user.last_name %>
-    <%= form.text_field :commenter, :class => "form-control", :value => full_name, :readonly => "readonly" %>
-  </p>
-  <p>
-    <%= form.text_area :body, :class => "form-control", :placeholder => "Write your comment here", :rows => "5" %>
-  </p>
-  <p>
-    <%= form.submit :Submit, :class => "btn btn-primary col-11" %>
-  </p>
-</div>
-<% end %>
+  <form>
+    <div class="form-group">
+      <p>
+        <% full_name = current_user.first_name + " " + current_user.last_name %>
+        <%= form.text_field :commenter, :class => "form-control", :value => full_name, :readonly => "readonly" %>
+      </p>
+      <p>
+        <%= form.text_area :body, :class => "form-control", :placeholder => "Write your comment here", :rows => "5" %>
+      </p>
+      <p>
+        <%= form.submit :Submit, :class => "btn btn-primary col-11" %>
+      </p>
+    </div>
+  <% end %>
 </form>

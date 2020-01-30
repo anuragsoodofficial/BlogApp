@@ -1,15 +1,14 @@
 <% if current_user %>
-  Logged in as <%= current_user.email %>
-  <%= link_to "Log Out", logout_path %>
+  <%= render "sessions/destroy" %>
   <div class="jumbotron input-box bg-color">
-  <h1 class="display-4">Welcome To The BlogApp</h1>
-  <p class="lead">Showcase your knowledge through your <strong>Blog</strong></p>
-  <hr class="my-4">
-  <%= link_to 'My Blog', articles_path, :class => "btn btn-primary" %>
-  <% if (current_user.role == "admin") %>
-  	  <%= link_to 'User Dashboard', users_path, :class => "btn btn-outline-primary" %>
-  	 <% end %>
-</div>
+    <h1 class="display-4">Welcome To The BlogApp</h1>
+    <p class="lead">Showcase your knowledge through your <strong>Blog</strong></p>
+    <hr class="my-4">
+    <%= link_to 'My Blog', articles_path, :class => "btn btn-primary" %>
+    <% if (current_user.role == "admin") %>
+      <%= link_to 'User Dashboard', users_path, :class => "btn btn-outline-primary" %>
+    <% end %>
+  </div>
 <% else %>
-<%= render "sessions/login" %>
+  <%= render "sessions/login" %>
 <% end %>
