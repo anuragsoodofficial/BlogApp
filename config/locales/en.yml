@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        password: "Password"
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "should have 1 capital letter, 1 symbol and 1 number"
+              invalid: "should have 1 capital letter, 1 symbol and 1 number"
