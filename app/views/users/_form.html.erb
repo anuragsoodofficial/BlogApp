@@ -1,24 +1,25 @@
 <%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <p id="alert"><%= user.errors.full_messages[0] %></p>
-    </div>
-  <% end %>
   <div class="field form-group">
     <%= form.text_field :first_name, :class => "form-control", placeholder: "First Name", :required => true %>
   </div>
   <div class="field form-group">
     <%= form.text_field :last_name, :class => "form-control", placeholder: "Last Name", :required => true %>
   </div>
-  <div class="field form-group">
-    <%= form.email_field :email, :class => "form-control", placeholder: "Email Address", :required => true %>
-  </div>
-  <div class="field form-group">
-    <%= form.password_field :password, :class => "form-control", placeholder: "Password", :required => true %>
-  </div>
-  <div class="field form-group">
-    <%= form.password_field :password_confirmation, :class => "form-control", placeholder: "Confirm Password", :required => true %>
-  </div>
+  <%= form_group_for form, :email, label: false  do %>
+    <div class="field form-group">
+      <%= form.email_field :email, :class => "form-control #{'border border-danger' if form.object.errors[:email].present? }", placeholder: "Email Address", :required => true %>
+    </div>
+  <% end %>
+  <%= form_group_for form, :password, label: false  do %>
+    <div class="field form-group">
+      <%= form.password_field :password, :class => "form-control #{'border border-danger' if form.object.errors[:password].present? }", placeholder: "Password", :required => true %>
+    </div>
+  <% end %>
+  <%= form_group_for form, :password_confirmation, label: false  do %>
+    <div class="field form-group">
+      <%= form.password_field :password_confirmation, :class => "form-control #{'border border-danger' if form.object.errors[:password_confirmation].present? }", placeholder: "Confirm Password", :required => true %>
+    </div>
+  <% end %>
   <%= form.submit :Submit, :class => "btn btn-primary btn-lg" %>
   <%= link_to 'Back', root_url, :class => "btn btn-dark btn-lg" %>
 <% end %>

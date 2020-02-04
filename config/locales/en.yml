@@ -39,5 +39,7 @@ en:
         user:
           attributes:
             password:
-              blank: "should have 1 capital letter, 1 symbol and 1 number"
-              invalid: "should have 1 capital letter, 1 symbol and 1 number"
+              blank: "Password should have 1 capital letter, 1 symbol and 1 number"
+              invalid: "Password should have 1 capital letter, 1 symbol and 1 number"
+            email:
+              taken: "E-mail has been already taken."
